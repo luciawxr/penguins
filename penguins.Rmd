@@ -1,0 +1,89 @@
+---
+title: "penguins"
+author: "Xiaorui Wang"
+date: "2/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data
+
+#### About this dataset
+Size measurements for adult foraging penguins near Palmer Station, Antarctica. This data set includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. It includes 344 obeservations and 8 variables.
+
+
+![](https://static01.nyt.com/images/2021/08/03/climate/03cli-penguins-1/03cli-penguins-1-mediumSquareAt3X.jpg)
+<center> a picture of penguins </center>
+
+```{r,message = FALSE}
+library(palmerpenguins) #install.packages("palmerpenguins")
+library(tidyverse)
+```
+
+```{r, eval = FALSE}
+view(penguins)
+```
+
+
+```{r}
+penguins = tibble(penguins)
+dim(penguins)
+colnames(penguins)
+```
+
+
+
+```{r}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x=year, fill=island)) +
+  facet_wrap(~species)
+```
+
+## Single trait distribution
+```{r}
+summary(penguins$bill_length_mm)
+#max(bill_length_mm)
+```
+```{r}
+penguins%>%
+  ggplot(mapping = aes(x = bill_length_mm, fill = species))+
+  geom_density(alpha = 0.5)
+```
+```{r}
+penguins %>%
+  ggplot(mapping = aes(x = bill_length_mm, fill=species)) +
+  geom_histogram() +
+  facet_wrap(~species, nrow=3)
+```
+
+## Relationship between multiple traits
+
+```{r}
+penguins %>%
+  ggplot(mapping = aes(x = body_mass_g, y=flipper_length_mm, color=species)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+## Sexual dimorphism
+
+```{r}
+penguins %>%
+  ggplot(mapping = aes(x = bill_length_mm, y=bill_depth_mm, color=sex)) +
+  geom_point(size=1) +
+  facet_wrap(~species)
+```
+
+
+```{r}
+penguins %>%
+  ggplot(mapping = aes(x=flipper_length_mm, y=sex, color=sex)) +
+  geom_boxplot(outlier.alpha = 0, alpha=0) +
+  geom_jitter(width = 0, size=1) +
+  coord_flip() +
+  facet_wrap(~species)
+```
+

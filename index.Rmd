@@ -1,0 +1,38 @@
+---
+title: "index.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Data
+
+#### About this dataset
+Size measurements for adult foraging penguins near Palmer Station, Antarctica. This data set includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. It includes 344 obeservations and 8 variables.
+
+
+![](https://static01.nyt.com/images/2021/08/03/climate/03cli-penguins-1/03cli-penguins-1-mediumSquareAt3X.jpg)
+<center> a picture of penguins </center>
+
+
+```{r,message = FALSE}
+library(palmerpenguins) #install.packages("palmerpenguins")
+library(tidyverse)
+```
+
+```{r}
+penguins = tibble(penguins)
+dim(penguins)
+colnames(penguins)
+```
+
+#### Explore the dataset
+```{r}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x=year, fill=island)) +
+  facet_wrap(~species)
+```

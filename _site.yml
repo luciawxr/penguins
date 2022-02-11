@@ -1,0 +1,21 @@
+name: "penguins-website"
+navbar:
+  title: "Explore the penguins dataset"
+  left:
+    - text: "About"
+      href: index.html
+    - text: "Analyses"
+      menu:
+      - text: "Single Trait Analysis"
+        href: singletrait.html
+      - text: "Multi Trait Analysis"
+        href: multitraits.html
+      - text: "Sexual Dimorphisms"
+        href: sexdimorphs.html
+output_dir: "."
+output:
+  html_document:
+    theme: cerulean
+    highlight: textmate
+    toc: true 
+    toc_float: true 

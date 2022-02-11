@@ -1,0 +1,35 @@
+---
+title: "single_trait"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,message = FALSE}
+library(palmerpenguins) #install.packages("palmerpenguins")
+library(tidyverse)
+```
+
+
+## Single trait distribution
+```{r}
+summary(penguins$bill_length_mm)
+#max(bill_length_mm)
+```
+
+
+```{r}
+penguins%>%
+  ggplot(mapping = aes(x = bill_length_mm, fill = species))+
+  geom_density(alpha = 0.5)
+```
+
+
+```{r}
+penguins %>%
+  ggplot(mapping = aes(x = bill_length_mm, fill=species)) +
+  geom_histogram() +
+  facet_wrap(~species, nrow=3)
+```
