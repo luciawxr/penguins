@@ -7,11 +7,11 @@ navbar:
     - text: "Analyses"
       menu:
       - text: "Single Trait Analysis"
-        href: singletrait.html
+        href: single_trait.html
       - text: "Multi Trait Analysis"
-        href: multitraits.html
+        href: multiple_traits.html
       - text: "Sexual Dimorphisms"
-        href: sexdimorphs.html
+        href: sexual_dimorphism.html
 output_dir: "."
 output:
   html_document:

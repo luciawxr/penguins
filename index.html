@@ -328,13 +328,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="singletrait.html">Single Trait Analysis</a>
+      <a href="single_trait.html">Single Trait Analysis</a>
     </li>
     <li>
-      <a href="multitraits.html">Multi Trait Analysis</a>
+      <a href="multiple_traits.html">Multi Trait Analysis</a>
     </li>
     <li>
-      <a href="sexdimorphs.html">Sexual Dimorphisms</a>
+      <a href="sexual_dimorphism.html">Sexual Dimorphisms</a>
     </li>
   </ul>
 </li>
@@ -370,8 +370,9 @@ library(tidyverse)</code></pre>
 dim(penguins)</code></pre>
 <pre><code>## [1] 344   8</code></pre>
 <pre class="r"><code>colnames(penguins)</code></pre>
-<pre><code>## [1] &quot;species&quot;           &quot;island&quot;            &quot;bill_length_mm&quot;    &quot;bill_depth_mm&quot;    
-## [5] &quot;flipper_length_mm&quot; &quot;body_mass_g&quot;       &quot;sex&quot;               &quot;year&quot;</code></pre>
+<pre><code>## [1] &quot;species&quot;           &quot;island&quot;            &quot;bill_length_mm&quot;   
+## [4] &quot;bill_depth_mm&quot;     &quot;flipper_length_mm&quot; &quot;body_mass_g&quot;      
+## [7] &quot;sex&quot;               &quot;year&quot;</code></pre>
 </div>
 <div id="explore-the-dataset" class="section level4">
 <h4>Explore the dataset</h4>
@@ -379,7 +380,7 @@ dim(penguins)</code></pre>
   ggplot() +
   geom_bar(mapping = aes(x=year, fill=island)) +
   facet_wrap(~species)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
 
